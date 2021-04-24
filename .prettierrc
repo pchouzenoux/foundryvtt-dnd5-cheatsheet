@@ -1,0 +1,5 @@
+{
+  "requireConfig": true,
+  "singleQuote": true,
+  "trailingComma": "all"
+}

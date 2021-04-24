@@ -42,7 +42,7 @@ declare function mergeObject(
   overwrite?: boolean,
   inplace?: boolean,
   enforceTypes?: boolean,
-  _d?: number
+  _d?: number,
 ): Object;
 declare function expandObject(original: Object): any;
 

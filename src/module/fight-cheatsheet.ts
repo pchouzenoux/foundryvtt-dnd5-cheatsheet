@@ -1,9 +1,9 @@
-import movements from "./data/movement.js";
+import movements from './data/movement.js';
 
 export class FightCheatsheet extends FormApplication {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["dnd5-cheatsheet", "sidebar-popout"],
+      classes: ['dnd5-cheatsheet', 'sidebar-popout'],
       closeOnSubmit: true,
       submitOnChange: false,
       submitOnClose: false,
@@ -13,9 +13,9 @@ export class FightCheatsheet extends FormApplication {
       height: 400,
       isEditatble: false,
       resizable: true,
-      template: "modules/dnd5-cheatsheet/templates/fight-cheatsheet.html",
-      id: "dnd5-cheatsheet.fight",
-      title: game.i18n.localize("controls.fight.title"),
+      template: 'modules/dnd5-cheatsheet/templates/fight-cheatsheet.html',
+      id: 'dnd5-cheatsheet.fight',
+      title: game.i18n.localize('controls.fight.title'),
     });
   }
 
@@ -31,8 +31,8 @@ export class FightCheatsheet extends FormApplication {
 
   /** @override */
   activateListeners(html) {
-    html.find(".open").click((ev) => {
-      console.log("Open", ev);
+    html.find('.open').click((ev) => {
+      console.log('Open', ev);
     });
   }
 
