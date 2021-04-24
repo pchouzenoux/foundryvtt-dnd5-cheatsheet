@@ -1,6 +1,6 @@
 const fs = require('fs');
 const glob = require('glob');
-const { series, dest, src, parallel } = require('gulp');
+const { series, dest, src, parallel, watch } = require('gulp');
 const gulpTypescript = require('gulp-typescript');
 const gulpClean = require('gulp-clean');
 const gulpLess = require('gulp-less');
@@ -10,6 +10,7 @@ const gulpJsonminify = require('gulp-jsonminify');
 const config = {
   src: './src',
   dist: './dist',
+  deploy: `${process.env.FOUNDRY_DATA}/Data/modules/dnd5-cheatsheet`,
 };
 
 /**
@@ -116,11 +117,52 @@ function copyModule() {
 }
 exports.copyModule = copyModule;
 
-exports.build = series(
+/**
+ * Gulp build task
+ */
+const build = series(
   clean,
   tsCompile,
   styleCompile,
   parallel(copyTemplates, copyIcons, copyLang, copyModule),
 );
+exports.build = build;
+
+/**
+ * Gulp clean deploy task
+ *  - Delete deploy folder
+ * @param {function} done Done callback function
+ * @returns
+ */
+function cleanDeploy(done) {
+  if (fs.existsSync(config.deploy)) {
+    return src(config.deploy, { read: false }).pipe(gulpClean({ force: true }));
+  }
+  done();
+}
+exports.cleanDeploy = cleanDeploy;
+
+/**
+ * Gulp deploy tasks
+ * @returns
+ */
+function deploy() {
+  return src(`${config.dist}/**`).pipe(dest(config.deploy));
+}
+exports.deploy = series(cleanDeploy, deploy);
+
+// --------------------------------------------------------
+//                       Watcher
+// --------------------------------------------------------
+
+/**
+ * Gulp build watcher
+ *  - Watch source and rebuild
+ * @returns
+ */
+function buildWatch() {
+  return watch([`${config.src}/**`], series(build, cleanDeploy, deploy));
+}
+exports.watch = buildWatch;
 
 exports.default = exports.build;

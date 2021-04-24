@@ -1,7 +1,8 @@
-# Build
-lib/
-dist/
-output.html
+#System Files
+.DS_Store
 
-# Misc
+# Build
+dist/
+
+# Dependency directories
 node_modules/

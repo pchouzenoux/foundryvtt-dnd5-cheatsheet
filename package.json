@@ -4,9 +4,9 @@
   "main": "build.ts",
   "license": "MIT",
   "scripts": {
-    "build": "yarn gulp",
-    "deploy": "yarn build && FOUNDRY_MODULES=\"/Users/pierrick/foundrydata/Data/modules/dnd5-cheatsheet\" yarn deploy:build",
-    "deploy:build": "rm -rf $FOUNDRY_MODULES && mkdir $FOUNDRY_MODULES && cp -R ./dist/* $FOUNDRY_MODULES"
+    "build": "yarn gulp build",
+    "deploy": "yarn gulp deploy",
+    "watch": "yarn gulp watch"
   },
   "devDependencies": {
     "@types/config": "^0.0.38",
