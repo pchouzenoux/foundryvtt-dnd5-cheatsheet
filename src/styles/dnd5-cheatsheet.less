@@ -1,0 +1,60 @@
+@spacing: 4px;
+@spacing-large: 8px;
+
+.dnd5cs-section {
+  border: @spacing-large solid;
+  border-radius: @spacing-large;
+
+  &.dnd5cs-section_movements {
+    background-color: maroon;
+    border-color: maroon;
+    color: maroon;
+  }
+}
+
+.dnd5cs-section-title {
+  padding-left: @spacing-large;
+  padding-right: @spacing-large;
+  font-weight: bold;
+  color: white;
+  font-size: 16pt;
+}
+
+.dnd5cs-section-content {
+  padding: @spacing-large;
+  padding-bottom: 0;
+  border-radius: @spacing-large;
+  margin-top: 0;
+  background-color: white;
+}
+
+.dnd5cs-section-content-row {
+  flex-wrap: wrap;
+}
+
+.dnd5cs-section-content-subtitle {
+  margin-bottom: @spacing-large;
+}
+
+.dnd5cs-section-item {
+  margin-bottom: @spacing-large;
+  min-width: 300px;
+  max-width: 300px;
+}
+
+.dnd5cs-section-item-icon {
+  border-radius: @spacing;
+  margin-right: @spacing;
+}
+
+.dnd5cs-section-item-content {
+  padding-right: @spacing;
+}
+
+.dnd5cs-section-item-title {
+  font-weight: bold;
+}
+
+.dnd5cs-section-item-subtitle {
+  font-style: italic;
+}
