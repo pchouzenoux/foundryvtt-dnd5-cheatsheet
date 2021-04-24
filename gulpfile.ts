@@ -1,11 +1,11 @@
-const fs = require('fs');
-const glob = require('glob');
-const { series, dest, src, parallel, watch } = require('gulp');
-const gulpTypescript = require('gulp-typescript');
-const gulpClean = require('gulp-clean');
-const gulpLess = require('gulp-less');
-const gulpConcat = require('gulp-concat');
-const gulpJsonminify = require('gulp-jsonminify');
+import fs from 'fs';
+import glob from 'glob';
+import { series, dest, src, parallel, watch } from 'gulp';
+import gulpTypescript from 'gulp-typescript';
+import gulpClean from 'gulp-clean';
+import gulpLess from 'gulp-less';
+import gulpConcat from 'gulp-concat';
+import gulpJsonminify from 'gulp-jsonminify';
 
 const config = {
   src: './src',
