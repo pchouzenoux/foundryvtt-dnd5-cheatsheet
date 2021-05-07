@@ -49,3 +49,7 @@ declare function expandObject(original: Object): any;
 declare const PlaceablesLayer = any;
 declare const Note = any;
 declare const NoteConfig = any;
+
+declare class Babele {
+  public static get(): any;
+}

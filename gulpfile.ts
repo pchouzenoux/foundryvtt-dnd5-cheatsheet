@@ -6,7 +6,7 @@ import gulpClean from 'gulp-clean';
 import gulpLess from 'gulp-less';
 import gulpConcat from 'gulp-concat';
 import gulpJsonminify from 'gulp-jsonminify';
-import gulpPackContent from './gulpPackContent';
+import { gulpPackContent, gulpPackBabele } from './gulpPackContent';
 
 const config = {
   src: './src',
@@ -105,10 +105,16 @@ exports.copyIcons = copyIcons;
  * @returns
  */
 function copyLang() {
-  return src(`${config.src}/lang/**`).pipe(dest(`${config.dist}/lang`));
+  return src(`${config.src}/lang/*.json`).pipe(dest(`${config.dist}/lang`));
 }
 exports.copyLang = copyLang;
 
+function compileBabeleLang() {
+  return src(`${config.src}/lang/compendium/*`)
+    .pipe(gulpPackBabele())
+    .pipe(dest(`${config.dist}/lang/compendium`));
+}
+exports.compileBabeleLang = compileBabeleLang;
 /**
  * Gulp copyModule task
  *  - Copy module.json in dist folder
@@ -126,7 +132,14 @@ const build = series(
   clean,
   tsCompile,
   styleCompile,
-  parallel(copyTemplates, copyIcons, copyLang, copyModule, foundryCompilePack),
+  parallel(
+    copyTemplates,
+    copyIcons,
+    copyLang,
+    copyModule,
+    foundryCompilePack,
+    compileBabeleLang,
+  ),
 );
 exports.build = build;
 

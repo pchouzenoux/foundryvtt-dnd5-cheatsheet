@@ -17,6 +17,7 @@
       }
   ],
   "esmodules": [
+    "scripts/babele-register.js",
     "module/controls.js"
   ],
   "languages": [
@@ -30,5 +31,11 @@
       "name": "Français",
       "path": "lang/fr.json"
     }
-  ]
+  ],
+  "dependencies": [{
+    "name": "babele",
+    "type": "module",
+    "manifest": "https://gitlab.com/riccisi/foundryvtt-babele/raw/master/module/module.json",
+    "version": "1.19"
+  }]
 }
