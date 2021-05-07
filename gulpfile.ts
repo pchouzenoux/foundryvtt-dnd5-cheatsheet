@@ -6,6 +6,7 @@ import gulpClean from 'gulp-clean';
 import gulpLess from 'gulp-less';
 import gulpConcat from 'gulp-concat';
 import gulpJsonminify from 'gulp-jsonminify';
+import gulpPackContent from './gulpPackContent';
 
 const config = {
   src: './src',
@@ -48,6 +49,7 @@ function foundryCompilePack(done) {
   glob(`${config.src}/packs/*[!\.md]`, (err, packs) => {
     for (const pack of packs) {
       src(`${pack}/*.json`)
+        .pipe(gulpPackContent())
         .pipe(gulpJsonminify())
         .pipe(gulpConcat(pack.substring(pack.lastIndexOf('/'))))
         .pipe(dest(`${config.dist}/packs`));
@@ -124,7 +126,7 @@ const build = series(
   clean,
   tsCompile,
   styleCompile,
-  parallel(copyTemplates, copyIcons, copyLang, copyModule),
+  parallel(copyTemplates, copyIcons, copyLang, copyModule, foundryCompilePack),
 );
 exports.build = build;
 
@@ -147,6 +149,7 @@ exports.cleanDeploy = cleanDeploy;
  * @returns
  */
 function deploy() {
+  console.log('Deploy to ', config.deploy);
   return src(`${config.dist}/**`).pipe(dest(config.deploy));
 }
 exports.deploy = series(cleanDeploy, deploy);

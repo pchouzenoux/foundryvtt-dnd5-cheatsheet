@@ -1,21 +1,34 @@
-import { FightCheatsheet } from './fight-cheatsheet.js';
+async function renderEntry(id: string): Promise<void> {
+  const cheatsheetPack = game.packs.get(
+    'dnd5-cheatsheet.dnd5-cheatsheet',
+  ) as any;
+
+  const cheatsheetEntry = (await cheatsheetPack.getEntity(id)) as any;
+
+  cheatsheetEntry.sheet.render(true);
+}
 
 Hooks.on('getSceneControlButtons', (controls: Array<any>): void => {
   controls.push({
     name: 'cheatsheet',
-    title: 'controls.main',
-    icon: 'fas fa-hat-wizard',
+    title: 'dnd5Cheatsheet.controls.main',
+    icon: 'fas fa-dungeon',
     layer: 'ControlsLayer',
     visible: game.user.can('DRAWING_CREATE') || game.user.isGM,
     tools: [
       {
-        name: 'specials',
-        title: 'controls.fight.title',
-        icon: 'fas fa-hat-wizard',
-        onClick: () => {
-          new FightCheatsheet().render(true);
-        },
+        name: 'combat',
+        title: 'dnd5Cheatsheet.controls.combat',
+        icon: 'fas fa-fist-raised',
         button: true,
+        onClick: () => renderEntry('96yLLrkGd9Wdgrh4'),
+      },
+      {
+        name: 'move',
+        title: 'dnd5Cheatsheet.controls.move',
+        icon: 'fas fa-running',
+        button: true,
+        onClick: () => renderEntry('nXtpaIsrorRtpVLh'),
       },
     ],
   });

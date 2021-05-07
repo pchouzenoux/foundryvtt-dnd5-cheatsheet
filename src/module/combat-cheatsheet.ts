@@ -1,6 +1,4 @@
-import movements from './data/movement.js';
-
-export class FightCheatsheet extends FormApplication {
+export class CombatCheatsheet extends FormApplication {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ['dnd5-cheatsheet', 'sidebar-popout'],
@@ -13,9 +11,9 @@ export class FightCheatsheet extends FormApplication {
       height: 400,
       isEditatble: false,
       resizable: true,
-      template: 'modules/dnd5-cheatsheet/templates/fight-cheatsheet.html',
+      template: 'modules/dnd5-cheatsheet/templates/combat-cheatsheet.html',
       id: 'dnd5-cheatsheet.fight',
-      title: game.i18n.localize('controls.fight.title'),
+      title: game.i18n.localize('dnd5Cheatsheet.controls.combat.title'),
     });
   }
 
@@ -24,8 +22,9 @@ export class FightCheatsheet extends FormApplication {
    * @return {Object}   The data provided to the template when rendering the form
    */
   getData() {
+    console.log(game.i18n.translations.dnd5Cheatsheet);
     return {
-      movements,
+      i18n: game.i18n.translations.dnd5Cheatsheet.combat,
     };
   }
 

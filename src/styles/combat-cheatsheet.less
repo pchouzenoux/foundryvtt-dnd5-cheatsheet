@@ -1,0 +1,79 @@
+@import './variables.less';
+
+.dnd5cs-section {
+  padding: @spacing-large;
+}
+
+.dnd5cs-list {
+  list-style: none;
+
+  li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+    margin-top: @spacing;
+    margin-bottom: @spacing;
+
+    &.dnd5cs-list-item-block {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .dnd5cs-list-help {
+      color: @color-gray;
+      font-size: @fontsize-medium;
+
+      .dnd5cs-list-help_title {
+        color: @color-default;
+        font-weight: 700;
+      }
+    }
+
+    .dnd5cs-list-square {
+      width: @spacing-large;
+      height: @spacing-large;
+      margin-right: @spacing;
+
+      display: inline-block;
+      background-color: @color-default;
+
+      &.move {
+        background-color: @color-move;
+      }
+      &.interact {
+        background-color: @color-interac;
+      }
+      &.communicate {
+        background-color: @color-communicate;
+      }
+      &.action {
+        background-color: @color-action;
+      }
+      &.bonus-action {
+        background-color: @color-bonus-action;
+      }
+      &.reaction {
+        background-color: @color-reaction;
+      }
+    }
+  }
+}
+
+.dnd5cs-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .divider {
+    background-color: maroon;
+    height: 2px;
+    width: 50%;
+    align-self: center;
+    margin-top: @spacing-large;
+    margin-bottom: @spacing-large;
+  }
+  h3 {
+    align-self: center;
+  }
+}
