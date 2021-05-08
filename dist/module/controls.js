@@ -4,12 +4,12 @@ async function renderEntry(id) {
     cheatsheetEntry.sheet.render(true);
 }
 Hooks.on('getSceneControlButtons', (controls) => {
-    controls.push({
+    const dnd5CheatsheetControl = {
         name: 'cheatsheet',
         title: 'dnd5Cheatsheet.controls.main',
         icon: 'fas fa-dungeon',
         layer: 'ControlsLayer',
-        visible: game.user.can('DRAWING_CREATE') || game.user.isGM,
+        visible: true,
         tools: [
             {
                 name: 'combat',
@@ -33,5 +33,9 @@ Hooks.on('getSceneControlButtons', (controls) => {
                 onClick: () => renderEntry('nXtpaIsrorRtpVLh'),
             },
         ],
-    });
+    };
+    const controlButtonsEnable = game.settings.get('dnd5e-cheatsheet', 'dnd5CheatSheetControlButtons');
+    if (controlButtonsEnable) {
+        controls.push(dnd5CheatsheetControl);
+    }
 });

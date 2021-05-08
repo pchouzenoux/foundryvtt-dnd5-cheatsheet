@@ -38,7 +38,6 @@ export const gulpPackBabele = () => {
 
     for (const entry of translations.entries) {
       const htmlFilePath = `./src/packs/${packName}.db/${entry.id}_fr.html`;
-      console.log(htmlFilePath);
       if (fs.existsSync(htmlFilePath)) {
         const file = fs.readFileSync(htmlFilePath);
         entry.description = file.toString();

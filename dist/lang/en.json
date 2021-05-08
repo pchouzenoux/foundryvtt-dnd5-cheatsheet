@@ -5,6 +5,12 @@
       "combat": "Combat",
       "range-combat": "Range Combat",
       "move": "Déplacement"
+    },
+    "config": {
+      "controlButtons": {
+        "name": "Display quick access buttons",
+        "hint": "Displays buttons in the control bar for quick access to compendium items."
+      }
     }
   }
 }

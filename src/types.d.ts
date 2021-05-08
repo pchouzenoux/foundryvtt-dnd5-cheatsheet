@@ -1,9 +1,12 @@
+declare const window: any;
+
 declare class Compendium {
   importEntity(entity: Entity<T>);
 }
 
 declare class ClientSettings {
   get(module: string, key: string);
+  set(module: string, key: string, value: any);
   register(module: string, key: string, data: any);
 }
 

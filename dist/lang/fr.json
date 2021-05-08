@@ -5,6 +5,12 @@
       "combat": "Combat",
       "range-combat": "Combat à distance",
       "move": "Movement"
+    },
+    "config": {
+      "controlButtons": {
+        "name": "Afficher les boutons d'accès rapide",
+        "hint": "Affiche des boutons dans la barre de contrôle pour accéder rapidement aux éléments du compendium."
+      }
     }
   }
 }

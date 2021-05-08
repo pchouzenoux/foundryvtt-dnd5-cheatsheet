@@ -1,17 +1,19 @@
 # DnD5 Cheatsheet
 
-The goal of this module is to provide fast and consisce DnD5 Cheatsheet.
+The goal of this module is to provide fast and concise DnD5 Cheatsheet. With easy access buttons.
+
+Available in English and French.
 
 ![alt text](https://github.com/pchouzenoux/foundryvtt-dnd5-cheatsheet/blob/main/doc/overview.png "Module Overview")
 
 ## How to develop
 To build locally (compile typescript, less, compile packs and babele)
-- `yarn build`: Build the module
-- `yarn build:watch`: Build the module and start the watcher
+- `yarn build`: **Build** the module
+- `yarn build:watch`: **Build** the module and start the watcher
 
 Set `FOUNDRY_DATA` environment variable to deploy locally and next run one of these two commands:
-- `yarn deploy`: Build and deploy the module to `FOUNDRY_DATA` folder
-- `yarn deploy:watch`: Build and deploy the module to `FOUNDRY_DATA` folder then start the watcher
+- `yarn deploy`: **Deploy** built module to `FOUNDRY_DATA` folder
+- `yarn deploy:watch`: **Build and deploy** module to `FOUNDRY_DATA` folder then start the watcher
 
 ### Packs
 To simplify the creation of packs use this method:

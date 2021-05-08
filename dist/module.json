@@ -5,6 +5,7 @@
   "author": "Nehorim",
   "version": "0.0.1",
   "minimumCoreVersion": "0.7.9",
+  "compatibleCoreVersion": "0.7.9",
   "system": "dnd5e",
   "styles": ["./styles/dnd5-cheatsheet.css"],
   "packs": [
@@ -32,10 +33,18 @@
       "path": "lang/fr.json"
     }
   ],
-  "dependencies": [{
-    "name": "babele",
-    "type": "module",
-    "manifest": "https://gitlab.com/riccisi/foundryvtt-babele/raw/master/module/module.json",
-    "version": "1.19"
-  }]
+  "url": "https://github.com/pchouzenoux/foundryvtt-dnd5-cheatsheet",
+  "manifest": "https://github.com/pchouzenoux/foundryvtt-dnd5-cheatsheet/blob/main/dist/module.json",
+  "dependencies": [
+    {
+      "name": "babele",
+      "type": "module",
+      "manifest": "https://gitlab.com/riccisi/foundryvtt-babele/-/blob/master/module/module.json",
+      "version": "1.28"
+    }, 
+    {
+      "name": "dnd5e",
+      "type": "system"
+    }
+  ]
 }
