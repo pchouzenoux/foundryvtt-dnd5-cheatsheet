@@ -1,9 +1,19 @@
 {
-  "label": "Combat Cheatsheet",
+  "label": "DnD5 Cheatsheet",
   "entries": [
     {
-      "id": "Fight Cheatsheet",
-      "name": "Combat Cheatsheet",
+      "id": "Fight",
+      "name": "Combat",
+      "description": ""
+    },
+    {
+      "id": "Movement",
+      "name": "Mouvement",
+      "description": ""
+    },
+    {
+      "id": "Ranged Combat",
+      "name": "Combat à distance",
       "description": ""
     }
   ]

@@ -24,6 +24,13 @@ Hooks.on('getSceneControlButtons', (controls: Array<any>): void => {
         onClick: () => renderEntry('96yLLrkGd9Wdgrh4'),
       },
       {
+        name: 'range-combat',
+        title: 'dnd5Cheatsheet.controls.range-combat',
+        icon: 'fas fa-bowling-ball',
+        button: true,
+        onClick: () => renderEntry('sWPEV6eJ09WE5hkZ'),
+      },
+      {
         name: 'move',
         title: 'dnd5Cheatsheet.controls.move',
         icon: 'fas fa-running',

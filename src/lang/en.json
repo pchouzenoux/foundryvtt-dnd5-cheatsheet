@@ -2,19 +2,9 @@
   "dnd5Cheatsheet": {
     "controls": {
       "main": "DnD 5 - Cheatsheet",
-      "combat": "Combat Cheatsheet",
-      "move": "Move Cheatsheet"
-    },
-    "combat": {
-      "onYourTurn": {
-        "title": "On You Turn",
-        "and": "AND",
-        "move": "Move",
-        "interact": "1 Interact with Object",
-        "communicate": "Communicate",
-        "action": "1 Action",
-        "bonusAction": "1 Bonus Action"
-      }
+      "combat": "Combat",
+      "range-combat": "Range Combat",
+      "move": "Déplacement"
     }
   }
 }
