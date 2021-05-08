@@ -1,8 +1,5 @@
 #System Files
 .DS_Store
 
-# Build
-dist/
-
 # Dependency directories
 node_modules/

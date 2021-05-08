@@ -1,0 +1,10 @@
+{
+  "dnd5Cheatsheet": {
+    "controls": {
+      "main": "DnD 5 - Cheatsheet",
+      "combat": "Combat",
+      "range-combat": "Combat à distance",
+      "move": "Movement"
+    }
+  }
+}
