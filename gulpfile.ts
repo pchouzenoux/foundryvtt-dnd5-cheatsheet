@@ -177,8 +177,18 @@ exports.deploy = series(cleanDeploy, deploy);
  * @returns
  */
 function buildWatch() {
+  return watch([`${config.src}/**`], build);
+}
+exports.buildWatch = buildWatch;
+
+/**
+ * Gulp deploy watcher
+ *  - Watch source and rebuild
+ * @returns
+ */
+function deployWatch() {
   return watch([`${config.src}/**`], series(build, cleanDeploy, deploy));
 }
-exports.watch = buildWatch;
+exports.deployWatch = deployWatch;
 
 exports.default = exports.build;

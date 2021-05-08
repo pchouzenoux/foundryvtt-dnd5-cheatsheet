@@ -26,7 +26,7 @@ Hooks.on('getSceneControlButtons', (controls: Array<any>): void => {
       {
         name: 'range-combat',
         title: 'dnd5Cheatsheet.controls.range-combat',
-        icon: 'fas fa-bowling-ball',
+        icon: 'far fa-dot-circle',
         button: true,
         onClick: () => renderEntry('sWPEV6eJ09WE5hkZ'),
       },

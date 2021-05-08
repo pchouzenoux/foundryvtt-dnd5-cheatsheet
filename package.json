@@ -5,8 +5,9 @@
   "license": "MIT",
   "scripts": {
     "build": "yarn gulp build",
+    "build:watch": "yarn gulp buildWatch",
     "deploy": "yarn gulp deploy",
-    "watch": "yarn gulp watch"
+    "deploy:watch": "yarn gulp deployWatch"
   },
   "devDependencies": {
     "@types/config": "^0.0.38",

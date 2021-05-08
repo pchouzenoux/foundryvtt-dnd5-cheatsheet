@@ -5,3 +5,7 @@ To simplify the creation of packs use this method:
 2. One entry in the pack is on `json` file in this folder
 
 > You can create an `.html` file with save file name to replace content of the pack by HTML content.
+
+## Babele translation
+Create `_fr.html` file tp generate babele translation.
+Babele file mapping must be updated manually.
