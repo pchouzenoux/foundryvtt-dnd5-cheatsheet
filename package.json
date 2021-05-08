@@ -3,11 +3,6 @@
   "version": "1.0.0",
   "main": "build.ts",
   "license": "MIT",
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn build"
-    }
-  },
   "scripts": {
     "build": "yarn gulp build",
     "build:watch": "yarn gulp buildWatch",
@@ -36,7 +31,7 @@
     "gulp-jsonminify": "^1.1.0",
     "gulp-less": "^4.0.1",
     "gulp-typescript": "^6.0.0-alpha.1",
-    "husky": "^4",
+    "gulp-zip": "^5.1.0",
     "jest": "^26.6.3",
     "prettier": "^2.2.1",
     "ts-jest": "^26.5.4",
