@@ -34,7 +34,7 @@
     }
   ],
   "url": "https://github.com/pchouzenoux/foundryvtt-dnd5-cheatsheet",
-  "manifest": "https://github.com/pchouzenoux/foundryvtt-dnd5-cheatsheet/blob/main/dist/module.json",
+  "manifest": "https://raw.githubusercontent.com/pchouzenoux/foundryvtt-dnd5-cheatsheet/main/dist/module.json",
   "dependencies": [
     {
       "name": "babele",

@@ -165,7 +165,7 @@ function deploy() {
   console.log('Deploy to ', config.deploy);
   return src(`${config.dist}/**`).pipe(dest(config.deploy));
 }
-exports.deploy = series(cleanDeploy, deploy);
+exports.deploy = series(build, cleanDeploy, deploy);
 
 // --------------------------------------------------------
 //                       Watcher
