@@ -6,6 +6,13 @@ Available in English and French.
 
 ![alt text](https://github.com/pchouzenoux/foundryvtt-dnd5-cheatsheet/blob/main/doc/overview.png "Module Overview")
 
+## How to install
+To install, follow these instructions:
+
+1. Inside Foundry, select the Game Modules tab in the Configuration and Setup menu.
+2. Click the Install Module button and enter the following URL: https://raw.githubusercontent.com/pchouzenoux/foundryvtt-dnd5-cheatsheet/main/dist/module.json
+3. Click Install and wait for installation to complete.
+
 ## How to develop
 To build locally (compile typescript, less, compile packs and babele)
 - `yarn build`: **Build** the module
