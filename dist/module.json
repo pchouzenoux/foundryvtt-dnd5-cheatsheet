@@ -3,7 +3,7 @@
   "title": "DnD5 Cheatsheet",
   "description": "A simple module that provide player cheatsheet.",
   "author": "Nehorim",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "minimumCoreVersion": "0.7.9",
   "compatibleCoreVersion": "0.7.9",
   "system": "dnd5e",
@@ -35,7 +35,7 @@
   ],
   "url": "https://github.com/pchouzenoux/foundryvtt-dnd5-cheatsheet",
   "manifest": "https://raw.githubusercontent.com/pchouzenoux/foundryvtt-dnd5-cheatsheet/main/dist/module.json",
-	"download": "https://raw.githubusercontent.com/pchouzenoux/foundryvtt-dnd5-cheatsheet/main/dist/dnd5-cheatsheet-0.0.1.zip",
+	"download": "https://raw.githubusercontent.com/pchouzenoux/foundryvtt-dnd5-cheatsheet/main/dist/dnd5-cheatsheet-0.0.2.zip",
   "dependencies": [
     {
       "name": "babele",

@@ -1,6 +1,6 @@
 # DnD5 Cheatsheet
 
-The goal of this module is to provide fast and concise DnD5 Cheatsheet. With easy access buttons.
+This module aims to provide a fast and concise DnD5 Cheatsheet. With easy access buttons (can be disabled in settings).
 
 Available in English and French.
 
