@@ -6,7 +6,6 @@ import gulpClean from 'gulp-clean';
 import gulpLess from 'gulp-less';
 import gulpConcat from 'gulp-concat';
 import gulpJsonminify from 'gulp-jsonminify';
-import gulpZip from 'gulp-zip';
 import { gulpPackContent, gulpPackBabele } from './gulpPackContent';
 
 const config = {
@@ -125,18 +124,6 @@ function copyModule() {
   return src(`${config.src}/module.json`).pipe(dest(config.dist));
 }
 exports.copyModule = copyModule;
-/**
- * Pack
- *  - Zip dist module
- * @returns
- */
-function packageModule() {
-  const pkg = require(`${config.src}/module.json`);
-  return src(`${config.dist}/**/*`)
-    .pipe(gulpZip(`${pkg.name}-${pkg.version}.zip`))
-    .pipe(dest(config.dist));
-}
-exports.packageModule = packageModule;
 
 /**
  * Gulp build task
@@ -153,7 +140,6 @@ const build = series(
     foundryCompilePack,
     compileBabeleLang,
   ),
-  packageModule,
 );
 exports.build = build;
 
