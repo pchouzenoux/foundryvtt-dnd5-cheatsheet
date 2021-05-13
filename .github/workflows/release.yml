@@ -13,14 +13,15 @@ jobs:
     - uses: borales/actions-yarn@v2.0.0
       with:
         cmd: install # will run `yarn install` command
+
     - uses: borales/actions-yarn@v2.0.0
       with:
         cmd: build # will run `yarn build` command
 
     # Substitute the Manifest and Download URLs in the module.json
-    - name: Substitute Manifest and Download Links For Versioned Ones
+    - uses: microsoft/variable-substitution@v1
+      name: Substitute Manifest and Download Links For Versioned Ones
       id: sub_manifest_link_version
-      uses: microsoft/variable-substitution@v1
       with:
         files: 'dist/module.json'
       env:
@@ -30,12 +31,13 @@ jobs:
         download: https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/dnd5-cheatsheet-${{github.event.release.tag_name}}.zip
 
     # Create a zip file with all files required by the module to add to the release
-    - run: zip -r ./dnd5-cheatsheet-${{github.event.release.tag_name}}.zip dist/*
+    - name: Create module zip package
+      run: cd dist/; zip -r ../dnd5-cheatsheet-${{github.event.release.tag_name}}.zip .
 
     # Create a release for this specific version
-    - name: Update Release with Files
+    - uses: ncipollo/release-action@v1
+      name: Update Release with Files
       id: create_version_release
-      uses: ncipollo/release-action@v1
       with:
         allowUpdates: true # Set this to false if you want to prevent updating existing releases
         name: ${{ github.event.release.name }}
