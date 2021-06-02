@@ -3,7 +3,7 @@ async function renderEntry(id: string): Promise<void> {
     'dnd5-cheatsheet.dnd5-cheatsheet',
   ) as any;
 
-  const cheatsheetEntry = (await cheatsheetPack.getEntity(id)) as any;
+  const cheatsheetEntry = (await cheatsheetPack.getDocument(id)) as any;
 
   cheatsheetEntry.sheet.render(true);
 }
@@ -13,7 +13,7 @@ Hooks.on('getSceneControlButtons', (controls: Array<any>): void => {
     name: 'cheatsheet',
     title: 'dnd5Cheatsheet.controls.main',
     icon: 'fas fa-dungeon',
-    layer: 'ControlsLayer',
+    layer: 'controls',
     visible: true,
     tools: [
       {
@@ -21,6 +21,8 @@ Hooks.on('getSceneControlButtons', (controls: Array<any>): void => {
         title: 'dnd5Cheatsheet.controls.combat',
         icon: 'fas fa-fist-raised',
         button: true,
+        active: true,
+        visible: true,
         onClick: () => renderEntry('96yLLrkGd9Wdgrh4'),
       },
       {
@@ -28,6 +30,8 @@ Hooks.on('getSceneControlButtons', (controls: Array<any>): void => {
         title: 'dnd5Cheatsheet.controls.range-combat',
         icon: 'far fa-dot-circle',
         button: true,
+        active: true,
+        visible: true,
         onClick: () => renderEntry('sWPEV6eJ09WE5hkZ'),
       },
       {
@@ -35,6 +39,8 @@ Hooks.on('getSceneControlButtons', (controls: Array<any>): void => {
         title: 'dnd5Cheatsheet.controls.move',
         icon: 'fas fa-running',
         button: true,
+        active: true,
+        visible: true,
         onClick: () => renderEntry('nXtpaIsrorRtpVLh'),
       },
     ],

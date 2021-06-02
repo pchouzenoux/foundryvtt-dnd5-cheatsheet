@@ -41,11 +41,7 @@
       "name": "babele",
       "type": "module",
       "manifest": "https://gitlab.com/riccisi/foundryvtt-babele/-/blob/master/module/module.json",
-      "version": "1.28"
-    }, 
-    {
-      "name": "dnd5e",
-      "type": "system"
+      "version": "2.0"
     }
   ]
 }
