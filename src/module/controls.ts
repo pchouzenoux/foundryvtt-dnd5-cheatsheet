@@ -46,10 +46,7 @@ Hooks.on('getSceneControlButtons', (controls: Array<any>): void => {
     ],
   };
 
-  const controlButtonsEnable = game.settings.get(
-    'dnd5e-cheatsheet',
-    'dnd5CheatSheetControlButtons',
-  );
+  const controlButtonsEnable = game.settings.get('dnd5e-cheatsheet', 'enable');
   if (controlButtonsEnable) {
     controls.push(dnd5CheatsheetControl);
   }
