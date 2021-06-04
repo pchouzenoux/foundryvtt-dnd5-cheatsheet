@@ -21,6 +21,7 @@ declare const game: Game;
 
 declare module Hooks {
   function on(trigger: string, callback: (args: any) => void);
+  function once(trigger: string, callback: (args: any) => void);
 }
 
 declare abstract class FormApplication {

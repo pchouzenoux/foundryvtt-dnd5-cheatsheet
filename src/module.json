@@ -4,8 +4,8 @@
   "description": "A simple module that provide player cheatsheet.",
   "author": "Nehorim",
   "version": "INJECTED_BY_GITHUB_ACTION",
-  "minimumCoreVersion": "0.7.9",
-  "compatibleCoreVersion": "0.7.9",
+  "minimumCoreVersion": "0.8.6",
+  "compatibleCoreVersion": "0.8.6",
   "system": "dnd5e",
   "styles": ["./styles/dnd5-cheatsheet.css"],
   "packs": [
@@ -41,11 +41,7 @@
       "name": "babele",
       "type": "module",
       "manifest": "https://gitlab.com/riccisi/foundryvtt-babele/-/blob/master/module/module.json",
-      "version": "1.28"
-    }, 
-    {
-      "name": "dnd5e",
-      "type": "system"
+      "version": "2.0"
     }
   ]
 }
