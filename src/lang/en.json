@@ -4,7 +4,8 @@
       "main": "DnD 5 - Cheatsheet",
       "combat": "Combat",
       "range-combat": "Range Combat",
-      "move": "Déplacement"
+      "move": "Déplacement",
+      "magic-item": "Magic item"
     },
     "config": {
       "controlButtons": {

@@ -15,6 +15,11 @@
       "id": "Ranged Combat",
       "name": "Combat à distance",
       "description": ""
+    },
+    {
+      "id": "Magic Item",
+      "name": "Objet magique",
+      "description": ""
     }
   ]
 }

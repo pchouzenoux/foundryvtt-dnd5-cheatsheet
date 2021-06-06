@@ -43,6 +43,15 @@ Hooks.on('getSceneControlButtons', (controls: Array<any>): void => {
         visible: true,
         onClick: () => renderEntry('nXtpaIsrorRtpVLh'),
       },
+      {
+        name: 'magic-item',
+        title: 'dnd5Cheatsheet.controls.magic-item',
+        icon: 'fas fa-tools',
+        button: true,
+        active: true,
+        visible: true,
+        onClick: () => renderEntry('p5phMKTqf387Wco5'),
+      },
     ],
   };
 
