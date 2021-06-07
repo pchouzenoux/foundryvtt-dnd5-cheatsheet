@@ -4,7 +4,8 @@
       "main": "DnD 5 - Cheatsheet",
       "combat": "Combat",
       "range-combat": "Combat à distance",
-      "move": "Movement"
+      "move": "Movement",
+      "magic-item": "Objet magique"
     },
     "config": {
       "controlButtons": {
