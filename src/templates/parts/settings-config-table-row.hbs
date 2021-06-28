@@ -1,0 +1,27 @@
+<tr>
+  <td>
+    <input type="text" name="data.{{controlId}}" value="{{control.name}}" data-dtype="String" />
+  </td>
+  <td>
+    <input type="text" name="data.{{controlId}}" value="{{control.title}}" data-dtype="String" />
+  </td>
+  <td>
+    <input type="text" name="data.{{controlId}}" value="{{control.icon}}" data-dtype="String" />
+  </td>
+  <td>
+    <select name="data.{{controlId}}" data-dtype="String">
+      {{#select control.pack}}
+      {{#each @root.packs as | pack |}}
+      <option value="{{pack.key}}">{{pack.title}}</option>
+      {{/each}}
+      {{/select}}
+    </select>
+    /
+    <input type="text" name="data.{{controlId}}" value="{{control.entry}}" data-dtype="String" />
+  </td>
+  <td class="textCenter">
+    <button type="button" title="{{localize 'Delete'}}" class='delete-row'>
+      <i class="fa fa-trash"></i>
+    </button>
+  </td>
+</tr>

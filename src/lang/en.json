@@ -1,5 +1,5 @@
 {
-  "dnd5Cheatsheet": {
+  "dnd5-cheatsheet": {
     "controls": {
       "main": "DnD 5 - Cheatsheet",
       "combat": "Combat",
@@ -7,10 +7,29 @@
       "move": "Déplacement",
       "magic-item": "Magic item"
     },
-    "config": {
-      "controlButtons": {
-        "name": "Display quick access buttons",
-        "hint": "Displays buttons in the control bar for quick access to compendium items."
+    "settings": {
+      "world": {
+        "controlButtons": {
+          "menu": { 
+            "name": "Control buttons",
+            "label": "Configure control buttons",
+            "hint": "Change icon or compendium link of control buttons"
+          },
+          "windowTitle": "Control buttons settings",
+          "table": {
+            "name": "Name",
+            "title": "Title",
+            "icon": "Icon",
+            "compendium": "Compendium entry",
+            "add": "Add"
+          }
+        }
+      },
+      "client": {
+        "enable": {
+          "name": "Display quick access buttons",
+          "hint": "Displays buttons in the control bar for quick access to compendium items."
+        }
       }
     }
   }
