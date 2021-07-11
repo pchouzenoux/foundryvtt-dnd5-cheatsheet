@@ -5,7 +5,7 @@ import {
 } from './constants.js';
 
 async function renderEntry(pack: string, entry: string): Promise<void> {
-  const cheatsheetPack = game.packs.get(pack) as any;
+  const cheatsheetPack = (game as Game).packs.get(pack) as any;
 
   const cheatsheetEntry = (await cheatsheetPack.getDocument(entry)) as any;
 
@@ -13,7 +13,7 @@ async function renderEntry(pack: string, entry: string): Promise<void> {
 }
 
 Hooks.on('getSceneControlButtons', (controls: Array<any>): void => {
-  const controlButtons = game.settings.get(
+  const controlButtons = (game as Game).settings.get(
     MODULE_ID,
     CheahsheetWorldSettings.CONTROL_BUTTONS,
   );
@@ -34,7 +34,7 @@ Hooks.on('getSceneControlButtons', (controls: Array<any>): void => {
     })),
   };
 
-  const controlButtonsEnable = game.settings.get(
+  const controlButtonsEnable = (game as Game).settings.get(
     MODULE_ID,
     CheahsheetClientSettings.ENABLE,
   );

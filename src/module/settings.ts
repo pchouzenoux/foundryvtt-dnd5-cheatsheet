@@ -28,11 +28,12 @@ export class CheatsheetSettings extends FormApplication {
       controlButtonsEnable: true,
     };
 
+    const _game = game as Game;
     const defaultCheatsheetWorldConfig: CheatsheetWorldConfig = {
       controlButtons: [
         {
           name: 'combat',
-          title: game.i18n.localize('dnd5-cheatsheet.controls.combat'),
+          title: _game.i18n.localize('dnd5-cheatsheet.controls.combat'),
           icon: 'fas fa-fist-raised',
           pack: 'dnd5-cheatsheet.dnd5-cheatsheet',
           entry: '96yLLrkGd9Wdgrh4',
@@ -40,7 +41,7 @@ export class CheatsheetSettings extends FormApplication {
         },
         {
           name: 'range-combat',
-          title: game.i18n.localize('dnd5-cheatsheet.controls.range-combat'),
+          title: _game.i18n.localize('dnd5-cheatsheet.controls.range-combat'),
           icon: 'far fa-dot-circle',
           pack: 'dnd5-cheatsheet.dnd5-cheatsheet',
           entry: 'sWPEV6eJ09WE5hkZ',
@@ -50,7 +51,7 @@ export class CheatsheetSettings extends FormApplication {
           name: 'move',
           title: 'dnd5-cheatsheet.controls.move',
           icon: 'fas fa-running',
-          pack: game.i18n.localize('dnd5-cheatsheet.dnd5-cheatsheet'),
+          pack: _game.i18n.localize('dnd5-cheatsheet.dnd5-cheatsheet'),
           entry: 'nXtpaIsrorRtpVLh',
           compendiumEntry: 'dnd5-cheatsheet.dnd5-cheatsheet.nXtpaIsrorRtpVLh',
         },
@@ -58,16 +59,16 @@ export class CheatsheetSettings extends FormApplication {
           name: 'magic-item',
           title: 'dnd5-cheatsheet.controls.magic-item',
           icon: 'fas fa-tools',
-          pack: game.i18n.localize('dnd5-cheatsheet.dnd5-cheatsheet'),
+          pack: _game.i18n.localize('dnd5-cheatsheet.dnd5-cheatsheet'),
           entry: 'p5phMKTqf387Wco5',
           compendiumEntry: 'dnd5-cheatsheet.dnd5-cheatsheet.p5phMKTqf387Wco5',
         },
       ],
     };
 
-    game.settings.register(MODULE_ID, CheahsheetClientSettings.ENABLE, {
-      name: game.i18n.localize(`${CheahsheetClientSettings.ENABLE}.name`),
-      hint: game.i18n.localize(`${CheahsheetClientSettings.ENABLE}.hint`),
+    _game.settings.register(MODULE_ID, CheahsheetClientSettings.ENABLE, {
+      name: _game.i18n.localize(`${CheahsheetClientSettings.ENABLE}.name`),
+      hint: _game.i18n.localize(`${CheahsheetClientSettings.ENABLE}.hint`),
       type: Boolean,
       default: defaultCheatsheetClientConfig.controlButtonsEnable,
       scope: 'client',
@@ -77,7 +78,7 @@ export class CheatsheetSettings extends FormApplication {
       },
     });
 
-    game.settings.registerMenu(
+    _game.settings.registerMenu(
       MODULE_ID,
       CheahsheetWorldSettings.CONTROL_BUTTONS_MENU,
       {
@@ -90,15 +91,19 @@ export class CheatsheetSettings extends FormApplication {
       },
     );
 
-    game.settings.register(MODULE_ID, CheahsheetWorldSettings.CONTROL_BUTTONS, {
-      default: defaultCheatsheetWorldConfig.controlButtons,
-      type: Object,
-      scope: 'world',
-      config: false,
-      onChange: () => {
-        window.location.reload();
+    _game.settings.register(
+      MODULE_ID,
+      CheahsheetWorldSettings.CONTROL_BUTTONS,
+      {
+        default: defaultCheatsheetWorldConfig.controlButtons,
+        type: Object,
+        scope: 'world',
+        config: false,
+        onChange: () => {
+          window.location.reload();
+        },
       },
-    });
+    );
   }
 
   static get defaultOptions() {
@@ -109,7 +114,7 @@ export class CheatsheetSettings extends FormApplication {
       submitOnChange: false,
       submitOnClose: false,
       template: TEMPLATES.settings,
-      title: game.i18n.localize(
+      title: (game as Game).i18n.localize(
         `${MODULE_ID}.settings.world.controlButtons.windowTitle`,
       ),
       width: 800,
@@ -119,7 +124,7 @@ export class CheatsheetSettings extends FormApplication {
   getData() {
     const data = {
       ...super.getData(),
-      controlButtons: game.settings.get(
+      controlButtons: (game as Game).settings.get(
         MODULE_ID,
         CheahsheetWorldSettings.CONTROL_BUTTONS,
       ),
@@ -205,7 +210,7 @@ export class CheatsheetSettings extends FormApplication {
   async _updateObject(ev, formData) {
     const data = Object.values(expandObject(formData).data);
 
-    await game.settings.set(
+    await (game as Game).settings.set(
       MODULE_ID,
       CheahsheetWorldSettings.CONTROL_BUTTONS,
       data
