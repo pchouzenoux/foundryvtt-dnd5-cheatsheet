@@ -16,6 +16,7 @@
             "hint": "Change icon or compendium link of control buttons"
           },
           "windowTitle": "Control buttons settings",
+          "windowHelp": "You can drag and drop compendium to auto complete compendium entry",
           "table": {
             "name": "Name",
             "title": "Title",

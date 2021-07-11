@@ -15,7 +15,9 @@ interface CheatsheetWorldControlButtonConfig {
   icon: string;
   pack: string;
   entry: string;
+  compendiumEntry: string;
 }
+
 interface CheatsheetWorldConfig {
   controlButtons: CheatsheetWorldControlButtonConfig[];
 }
@@ -34,6 +36,7 @@ export class CheatsheetSettings extends FormApplication {
           icon: 'fas fa-fist-raised',
           pack: 'dnd5-cheatsheet.dnd5-cheatsheet',
           entry: '96yLLrkGd9Wdgrh4',
+          compendiumEntry: 'dnd5-cheatsheet.dnd5-cheatsheet.96yLLrkGd9Wdgrh4',
         },
         {
           name: 'range-combat',
@@ -41,6 +44,7 @@ export class CheatsheetSettings extends FormApplication {
           icon: 'far fa-dot-circle',
           pack: 'dnd5-cheatsheet.dnd5-cheatsheet',
           entry: 'sWPEV6eJ09WE5hkZ',
+          compendiumEntry: 'dnd5-cheatsheet.dnd5-cheatsheet.sWPEV6eJ09WE5hkZ',
         },
         {
           name: 'move',
@@ -48,6 +52,7 @@ export class CheatsheetSettings extends FormApplication {
           icon: 'fas fa-running',
           pack: game.i18n.localize('dnd5-cheatsheet.dnd5-cheatsheet'),
           entry: 'nXtpaIsrorRtpVLh',
+          compendiumEntry: 'dnd5-cheatsheet.dnd5-cheatsheet.nXtpaIsrorRtpVLh',
         },
         {
           name: 'magic-item',
@@ -55,6 +60,7 @@ export class CheatsheetSettings extends FormApplication {
           icon: 'fas fa-tools',
           pack: game.i18n.localize('dnd5-cheatsheet.dnd5-cheatsheet'),
           entry: 'p5phMKTqf387Wco5',
+          compendiumEntry: 'dnd5-cheatsheet.dnd5-cheatsheet.p5phMKTqf387Wco5',
         },
       ],
     };
@@ -106,7 +112,7 @@ export class CheatsheetSettings extends FormApplication {
       title: game.i18n.localize(
         `${MODULE_ID}.settings.world.controlButtons.windowTitle`,
       ),
-      width: 1200,
+      width: 800,
     };
   }
 
@@ -117,39 +123,17 @@ export class CheatsheetSettings extends FormApplication {
         MODULE_ID,
         CheahsheetWorldSettings.CONTROL_BUTTONS,
       ),
-      packs: this.getPaksList(),
     };
     return data;
-  }
-
-  private getPaksList() {
-    const packs = [];
-    for (const [key, pack] of game.packs.entries()) {
-      packs.push({
-        key,
-        title: pack.title,
-      });
-    }
-    return packs;
   }
 
   activateListeners(html) {
     super.activateListeners(html);
 
-    console.log('--------------------------------------------');
     const handleNewRowClick = async (currentTarget: JQuery<any>) => {
-      const table = currentTarget.data().table;
-
       const tableElement = currentTarget.siblings('table');
       const tbodyElement = $(tableElement).find('tbody');
 
-      console.log(
-        '>>>>>>>>>>>>>>>>>>>>>>>',
-        table,
-        tableElement,
-        tbodyElement,
-        '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<',
-      );
       const newRow = $(
         await renderTemplate(TEMPLATES.settingTableRow, {
           controlId: randomID(),
@@ -159,8 +143,8 @@ export class CheatsheetSettings extends FormApplication {
             icon: '',
             pack: '',
             entry: '',
+            compendiumEntry: '',
           },
-          packs: this.getPaksList(),
         }),
       );
       // render a new row at the end of tbody
@@ -189,6 +173,33 @@ export class CheatsheetSettings extends FormApplication {
         handleDeleteRowClick(wrappedCurrentTarget);
       }
     });
+
+    html.on('drop', async (event) => {
+      const draggedItem = JSON.parse(
+        event.originalEvent.dataTransfer.getData('text/plain'),
+      );
+
+      if (draggedItem.type !== 'JournalEntry' || !draggedItem.pack) {
+        return;
+      }
+
+      const currentTarget = $(event.target).closest('input')[0];
+      if (!currentTarget) {
+        return;
+      }
+
+      const currentControlId = $(event.target).closest('tr')[0]?.attributes[0]
+        ?.value;
+      if (!currentControlId) {
+        return;
+      }
+
+      $(`input[name="data.${currentControlId}.pack"]`)[0].value =
+        draggedItem.pack;
+      $(`input[name="data.${currentControlId}.entry"]`)[0].value =
+        draggedItem.id;
+      currentTarget.value = `${draggedItem.pack}.${draggedItem.id}`;
+    });
   }
 
   async _updateObject(ev, formData) {
@@ -199,19 +210,21 @@ export class CheatsheetSettings extends FormApplication {
       CheahsheetWorldSettings.CONTROL_BUTTONS,
       data
         .filter(
-          ([name, title, icon, pack, entry]) =>
-            name !== '' &&
-            title !== '' &&
-            icon !== '' &&
-            pack !== '' &&
-            entry !== '',
+          (control: CheatsheetWorldControlButtonConfig) =>
+            control.name !== '' &&
+            control.title !== '' &&
+            control.icon !== '' &&
+            control.pack !== '' &&
+            control.entry !== '' &&
+            control.compendiumEntry !== '',
         )
-        .map(([name, title, icon, pack, entry]) => ({
-          name,
-          title,
-          icon,
-          pack,
-          entry,
+        .map((control: CheatsheetWorldControlButtonConfig) => ({
+          name: control.name,
+          title: control.title,
+          icon: control.icon,
+          pack: control.pack,
+          entry: control.entry,
+          compendiumEntry: control.compendiumEntry,
         })),
     );
 

@@ -16,6 +16,7 @@
             "hint": "Change icon or compendium link of control buttons"
           },
           "windowTitle": "Configuration des boutons d'accès rapide",
+          "windowHelp": "Vous pouvez drag & drop compendium pour remplir automatiquement l'entrée du compemdium",
           "table": {
             "name": "Name",
             "title": "Titre",
