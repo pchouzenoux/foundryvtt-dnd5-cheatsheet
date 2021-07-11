@@ -15,7 +15,8 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": false,
-    "inlineSourceMap": true
+    "inlineSourceMap": true,
+    "types": ["@league-of-foundry-developers/foundry-vtt-types"]
   },
   "files": [
     "./node_modules/@types/node/index.d.ts"

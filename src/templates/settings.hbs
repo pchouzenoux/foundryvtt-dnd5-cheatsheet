@@ -1,0 +1,32 @@
+<form id="dnd5cs-settings-form" class="{{classes}}" autocomplete="off">
+
+  <h2>{{localize 'dnd5-cheatsheet.settings.world.controlButtons.windowTitle'}}</h2>
+
+  <p>
+    {{localize 'dnd5-cheatsheet.settings.world.controlButtons.windowHelp'}}
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>{{localize 'dnd5-cheatsheet.settings.world.controlButtons.table.name'}}</th>
+        <th>{{localize 'dnd5-cheatsheet.settings.world.controlButtons.table.title'}}</th>
+        <th>{{localize 'dnd5-cheatsheet.settings.world.controlButtons.table.icon'}}</th>
+        <th>{{localize 'dnd5-cheatsheet.settings.world.controlButtons.table.compendium'}}</th>
+        <th>{{localize 'Delete'}}</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {{#each controlButtons as | control index |}}
+      {{> 'modules/dnd5-cheatsheet/templates/parts/settings-config-table-row.hbs' controlId=index control=control packs=@root.packs}}
+      {{/each}}
+    </tbody>
+  </table>
+
+  <button type="button" data-table="grids" class="add-row">
+    <i class="fa fa-plus"></i> <span>{{localize 'dnd5-cheatsheet.settings.world.controlButtons.table.add'}}</span>
+  </button>
+
+  <button type='submit'>{{localize 'Save Changes'}}</button>
+
+</form>

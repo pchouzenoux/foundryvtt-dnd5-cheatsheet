@@ -18,7 +18,7 @@
       }
   ],
   "esmodules": [
-    "scripts/babele-register.js",
+    "index.js",
     "module/controls.js"
   ],
   "languages": [

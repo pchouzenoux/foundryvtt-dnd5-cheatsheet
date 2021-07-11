@@ -1,61 +1,43 @@
-async function renderEntry(id: string): Promise<void> {
-  const cheatsheetPack = game.packs.get(
-    'dnd5-cheatsheet.dnd5-cheatsheet',
-  ) as any;
+import {
+  CheahsheetClientSettings,
+  CheahsheetWorldSettings,
+  MODULE_ID,
+} from './constants.js';
 
-  const cheatsheetEntry = (await cheatsheetPack.getDocument(id)) as any;
+async function renderEntry(pack: string, entry: string): Promise<void> {
+  const cheatsheetPack = game.packs.get(pack) as any;
+
+  const cheatsheetEntry = (await cheatsheetPack.getDocument(entry)) as any;
 
   cheatsheetEntry.sheet.render(true);
 }
 
 Hooks.on('getSceneControlButtons', (controls: Array<any>): void => {
+  const controlButtons = game.settings.get(
+    MODULE_ID,
+    CheahsheetWorldSettings.CONTROL_BUTTONS,
+  );
   const dnd5CheatsheetControl = {
     name: 'cheatsheet',
-    title: 'dnd5Cheatsheet.controls.main',
+    title: 'dnd5-cheatsheet.controls.main',
     icon: 'fas fa-dungeon',
     layer: 'controls',
     visible: true,
-    tools: [
-      {
-        name: 'combat',
-        title: 'dnd5Cheatsheet.controls.combat',
-        icon: 'fas fa-fist-raised',
-        button: true,
-        active: true,
-        visible: true,
-        onClick: () => renderEntry('96yLLrkGd9Wdgrh4'),
-      },
-      {
-        name: 'range-combat',
-        title: 'dnd5Cheatsheet.controls.range-combat',
-        icon: 'far fa-dot-circle',
-        button: true,
-        active: true,
-        visible: true,
-        onClick: () => renderEntry('sWPEV6eJ09WE5hkZ'),
-      },
-      {
-        name: 'move',
-        title: 'dnd5Cheatsheet.controls.move',
-        icon: 'fas fa-running',
-        button: true,
-        active: true,
-        visible: true,
-        onClick: () => renderEntry('nXtpaIsrorRtpVLh'),
-      },
-      {
-        name: 'magic-item',
-        title: 'dnd5Cheatsheet.controls.magic-item',
-        icon: 'fas fa-tools',
-        button: true,
-        active: true,
-        visible: true,
-        onClick: () => renderEntry('p5phMKTqf387Wco5'),
-      },
-    ],
+    tools: (controlButtons as any).map((control) => ({
+      name: control.name,
+      title: control.title,
+      icon: control.icon,
+      button: true,
+      active: true,
+      visible: true,
+      onClick: () => renderEntry(control.pack, control.entry),
+    })),
   };
 
-  const controlButtonsEnable = game.settings.get('dnd5e-cheatsheet', 'enable');
+  const controlButtonsEnable = game.settings.get(
+    MODULE_ID,
+    CheahsheetClientSettings.ENABLE,
+  );
   if (controlButtonsEnable) {
     controls.push(dnd5CheatsheetControl);
   }

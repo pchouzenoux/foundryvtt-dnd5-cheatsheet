@@ -1,0 +1,21 @@
+<tr controlId={{controlId}}>
+  <td>
+    <input type="text" name="data.{{controlId}}.name" value="{{control.name}}" data-dtype="String" />
+  </td>
+  <td>
+    <input type="text" name="data.{{controlId}}.title" value="{{control.title}}" data-dtype="String" />
+  </td>
+  <td>
+    <input type="text" name="data.{{controlId}}.icon" value="{{control.icon}}" data-dtype="String" />
+  </td>
+  <td>
+    <input hidden="true" name="data.{{controlId}}.pack" value="{{control.pack}}"  data-dtype="String" />
+    <input hidden="true" name="data.{{controlId}}.entry" value="{{control.entry}}"  data-dtype="String" />
+    <input type="text" name="data.{{controlId}}.compendiumEntry" value="{{control.compendiumEntry}}" data-dtype="String" />
+  </td>
+  <td class="textCenter">
+    <button type="button" title="{{localize 'Delete'}}" class='delete-row'>
+      <i class="fa fa-trash"></i>
+    </button>
+  </td>
+</tr>
