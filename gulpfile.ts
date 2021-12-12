@@ -1,12 +1,12 @@
 import fs from 'fs';
 import glob from 'glob';
-import { series, dest, src, parallel, watch } from 'gulp';
+import { dest, parallel, series, src, watch } from 'gulp';
 import gulpTypescript from 'gulp-typescript';
 import gulpClean from 'gulp-clean';
 import gulpLess from 'gulp-less';
 import gulpConcat from 'gulp-concat';
 import gulpJsonminify from 'gulp-jsonminify';
-import { gulpPackContent, gulpPackBabele } from './gulpPackContent';
+import { gulpPackBabele, gulpPackContent } from './gulpPackContent';
 
 const config = {
   src: './src',

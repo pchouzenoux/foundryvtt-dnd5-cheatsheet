@@ -1,4 +1,3 @@
-import { getMaxListeners } from 'node:process';
 import {
   CheahsheetClientSettings,
   CheahsheetWorldSettings,
@@ -73,7 +72,7 @@ export class CheatsheetSettings extends FormApplication {
       default: defaultCheatsheetClientConfig.controlButtonsEnable,
       scope: 'client',
       config: true,
-      onChange: (value) => {
+      onChange: () => {
         window.location.reload();
       },
     });
@@ -110,7 +109,7 @@ export class CheatsheetSettings extends FormApplication {
     return {
       ...super.defaultOptions,
       closeOnSubmit: true,
-      height: 'auto' as 'auto',
+      height: 'auto' as const,
       submitOnChange: false,
       submitOnClose: false,
       template: TEMPLATES.settings,

@@ -18,7 +18,6 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:import/typescript',
     'prettier',
-    'prettier/@typescript-eslint',
     'plugin:prettier/recommended',
   ],
   rules: {
@@ -64,5 +63,7 @@ module.exports = {
           '`with` is disallowed in strict mode because it makes code impossible to predict and optimize.',
       },
     ],
+    'import/no-unresolved': 'off',
+    'no-underscore-dangle': 'off',
   },
 };

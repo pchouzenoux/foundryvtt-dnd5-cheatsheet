@@ -1,8 +1,9 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import fs from 'fs';
 import through from 'through2';
 
 export const gulpPackContent = () => {
-  return through.obj(function (vinylFile, _, callback) {
+  return through.obj((vinylFile, _, callback) => {
     const transformedFile = vinylFile.clone();
 
     const fileName = transformedFile.path.substring(
@@ -24,7 +25,7 @@ export const gulpPackContent = () => {
 };
 
 export const gulpPackBabele = () => {
-  return through.obj(function (vinylFile, _, callback) {
+  return through.obj((vinylFile, _, callback) => {
     const transformedFile = vinylFile.clone();
 
     const packName = transformedFile.path
