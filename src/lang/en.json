@@ -3,25 +3,25 @@
     "controls": {
       "main": "DnD 5 - Cheatsheet",
       "combat": "Combat",
-      "range-combat": "Range Combat",
-      "move": "Déplacement",
-      "magic-item": "Magic item"
+      "range-combat": "Ranged Combat",
+      "move": "Movement",
+      "magic-item": "Magic Item"
     },
     "settings": {
       "world": {
         "controlButtons": {
           "menu": { 
-            "name": "Control buttons",
-            "label": "Configure control buttons",
-            "hint": "Change icon or compendium link of control buttons"
+            "name": "Control Buttons",
+            "label": "Configure Control Buttons",
+            "hint": "Change the icons or compendium links of the control buttons"
           },
-          "windowTitle": "Control buttons settings",
-          "windowHelp": "You can drag and drop compendium to auto complete compendium entry",
+          "windowTitle": "Control Buttons Settings",
+          "windowHelp": "You can drag and drop compendiums to auto complete compendium entries",
           "table": {
             "name": "Name",
             "title": "Title",
             "icon": "Icon",
-            "compendium": "Compendium entry",
+            "compendium": "Compendium Entry",
             "add": "Add"
           }
         }
@@ -29,7 +29,7 @@
       "client": {
         "enable": {
           "name": "Display quick access buttons",
-          "hint": "Displays buttons in the control bar for quick access to compendium items."
+          "hint": "Displays the button in the control bar for quick access to the compendium items."
         }
       }
     }
