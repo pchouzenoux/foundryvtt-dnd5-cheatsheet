@@ -5,7 +5,7 @@
   "author": "Nehorim",
   "version": "INJECTED_BY_GITHUB_ACTION",
   "minimumCoreVersion": "0.8.6",
-  "compatibleCoreVersion": "0.8.9",
+  "compatibleCoreVersion": "9",
   "system": "dnd5e",
   "styles": ["./styles/dnd5-cheatsheet.css"],
   "packs": [
